@@ -1,0 +1,18 @@
+bq. 滿洲糕點樣原繁，踵事增華不可言。
+
+h1. manchu-cake
+
+An online Manchu dictionary using node, express, ejs, nedb.
+
+h2. Demo
+
+"manchu-cake.glitch.me":https://manchu-cake.glitch.me/s?wd=ilha
+
+<div align=center><img width="576" src="https://telegra.ph/file/10672980e864877adb703.png"/></div>
+
+h2. Deployment
+
+bc.. git clone https://github.com/OverflowCat/manchu-cake.git
+cd manchu-cake
+npm i
+node start
