@@ -1,0 +1,30 @@
+{
+  "name": "manchu-cake",
+  "version": "0.2.0",
+  "description": "Manchu dictionary now online.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "nedb": "^1.8.0",
+    "csvtojson": "^2.0.10",
+    "lodash": "^4.17.21",
+    "nedb-promises": "^5.0.0",
+    "pangu": "^4.0.7"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://manchu-cake.glitch.me"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "manchu",
+    "dictionary"
+  ]
+}

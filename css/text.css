@@ -1,0 +1,64 @@
+.mnc {
+  -webkit-writing-mode: vertical-lr;
+  -moz-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: vertical-lr;
+  text-orientation: sideways-right;
+  -webkit-text-orientation: sideways-right;
+  font-family: "Noto Sans Mongolian";
+}
+/*
+.vertical-flexble {
+  max-height: 30px;
+  min-height: 100px;
+}
+*/
+.inline-block {
+  display: inline-block;
+  flex: initial;
+  width: flex;
+  height: flex;
+  margin: 4px;
+  word-wrap: break-word;
+  max-height: min-content;
+}
+
+.inline-block-parent {
+  display: flex
+}
+
+.vertical-midst {
+  position: absolute;
+  top: 64%; left: 90%;
+  transform: translate(-50%,-50%);
+}
+
+.vertical-midst-parent {
+  position: relative;
+}
+
+a:link { 
+color: #e74141; 
+}
+a:hover { 
+color: #ab1f1f; 
+}
+
+a.black:link {
+color: #FFFFFF; 
+text-decoration: none; 
+}
+a.black:visited { 
+color: #FFFFFF; 
+text-decoration: none; 
+}
+a.black:hover { 
+font-size: 12px; 
+color: #999999; 
+text-decoration: underline; 
+}
+
+[tag=followme]{
+  text-align:right;
+}

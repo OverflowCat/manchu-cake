@@ -1,0 +1,115 @@
+<html dir="ltr" lang="zh">
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+      <meta name="apple-touch-fullscreen" content="YES">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="theme-color" content="#f44336">
+    </head>
+<body class="mdui-theme-primary-red mdui-theme-accent-pink">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+        integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/text.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+        integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+        crossorigin="anonymous"></script>
+    <div class="mdui-toolbar mdui-color-theme mdui-shadow-8">
+        <span class="mdui-typo-title">滿洲糕點 <em>α</em> <small>0.5</small></span>
+    </div>
+    <div class="mdui-container">
+      <div class="mdui-chip mdui-m-t-2">
+  <span class="mdui-chip-title">0.5: Firefox 滿語無法豎直顯示的問題已經修復</span>
+</div>
+      <div class="mdui-chip mdui-m-t-2">
+  <span class="mdui-chip-title">0.4: 改進用戶介面</span>
+</div>
+        <div class="mdui-row vertical-midst-parent">
+            <div class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-10">
+                <label class="mdui-textfield-label">查找…</label>
+                <input class="mdui-textfield-input" id="searchQueryInput" type="text" value="<%= wd%>" />
+            </div>
+            <div class="mdui-col-xs-2 vertical-midst">
+                <button class="mdui-btn mdui-color-theme-accent mdui-ripple" onclick="search()">檢索</button>
+            </div>
+        </div>
+        <% dicts.forEach(function(ele){ %>
+            <div class="mdui-card mdui-hoverable mdui-m-b-2" tag="results" id="  <%= ele.id %>">
+                <div class="mdui-card-media">
+                    <!-- <img src="card.jpg"/> -->
+                    <div class="mdui-card-menu">
+                        <button class="mdui-btn mdui-btn-icon mdui-text-color-white">
+                            <i class="mdui-icon material-icons">share</i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 卡片的标题和副标题 -->
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title mdui-text-color-theme">
+                        <%= ele.r %>
+                    </div>
+                </div>
+                <!-- 卡片的内容 -->
+                <div class="mdui-card-content">
+                    <div class="mdui-row inline-block-parent">
+                        <!--
+            <div class="mdui-col-xs-1">
+              <div class="mnc vertical-flexible"> <%= ele.m %> </div>
+            </div>
+            <div class="mdui-col-xs-11">
+              <%= ele.zh %> 
+            </div>
+  -->
+                        <div class="mnc vertical-flexible inline-block">
+                            <%= ele.m %>
+                        </div>
+                        <div class="inline-block">
+                            <%= ele.zh %>
+                        </div>
+                    </div>
+                </div>
+                <!-- 卡片的按钮 -->
+                <div class="mdui-card-actions">
+                    <a href="/s?wd=<%= ele.r %>"><button class="mdui-btn mdui-ripple">檢索</button></a>
+                    <button class="mdui-btn mdui-ripple"
+                        onclick="copyToClip('<%= siteurl %>/s?wd=<%= ele.r.replace(/ /, " +") %>')">分享</button>
+                    <button class="mdui-btn mdui-btn-icon mdui-float-right">
+                        <i class="mdui-icon material-icons">expand_more</i>
+                    </button>
+                </div>
+            </div>
+            <% }); %>
+    <div class="mdui-card mdui-m-b-4 mdui-hoverable" tag="about">
+  <div class="mdui-card-media">
+    <img src="https://cdn.glitch.com/8bd11f3a-2825-4cf2-a705-1933cdeeedf6%2Fbanner.png.webp?v=1626078292197"/>
+    <div class="mdui-card-media-covered">
+      <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title" tag="followme">關注開發進度</div>
+        <div class="mdui-card-primary-subtitle" tag="followme">跟隨我</div>
+      </div>
+      <div class="mdui-card-actions">
+        <a class="black" href="https://twitter.com/2Lmwx"><button class="mdui-btn mdui-ripple mdui-ripple-white">TWITTER</button></a>
+        <a class="black" href="https://mastodon.neko.today"><button class="mdui-btn mdui-ripple mdui-ripple-white">MASTODON</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+    <script>
+        function search(){
+          window.location.href = "/s?wd=" + document.getElementById('searchQueryInput').value
+        }
+        function copyToClip(content, message) {
+            var aux = document.createElement("input");
+            aux.setAttribute("value", content);
+            document.body.appendChild(aux);
+            aux.select();
+            document.execCommand("copy");
+            document.body.removeChild(aux);
+            mdui.snackbar({
+                message: message == null ? '拷貝成功' : '拷貝失敗'
+            });
+        }
+    </script>
+</body>
+
+</html>
